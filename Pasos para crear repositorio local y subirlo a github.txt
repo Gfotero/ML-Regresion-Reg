@@ -1,0 +1,35 @@
+### Pasos a realizar de forma local hacia un repositorio en la nube privado
+
+Paso 1: Generar la clave SSH
+ssh-keygen -t rsa -b 4096 -C "tu_email@example.com"
+
+Paso 2: Agregar la clave SSH al agente SSH (solo para Windows)
+Abre Git Bash y ejecuta el comando:
+eval "$(ssh-agent -s)"
+Luego, agrega la clave SSH privada generada al agente SSH:
+ssh-add ~/.ssh/id_rsa
+
+Paso 3: Agregar la clave SSH a GitHub
+Copia el contenido de la clave SSH pública termina en .pub:
+Luego, ve a tu cuenta de GitHub, haz clic en "Settings" (Configuración) y luego en "SSH and GPG keys" (Claves SSH y GPG). Haz clic en "New SSH key" (Nueva clave SSH) y pega el contenido de la clave SSH pública.
+
+Paso 5: Probar la conexión SSH
+Ejecuta el comando:
+ssh -T git@github.com
+
+Paso 6: Se agrega un nuevo remoto llamado
+git remote add origin git@github.com:gfernandezotero/Kaggle_Light.git
+
+Paso 7: Configurar el repositorio local
+Ve a la carpeta de tu repositorio local y ejecuta el comando:
+git remote set-url origin git@github.com:tu_usuario/tu_repositorio.git
+Reemplaza tu_usuario y tu_repositorio con tus credenciales y nombre de repositorio respectivamente.
+
+
+cd my/folder/
+git init
+git add.
+git commit -m "Primer commit"
+
+### Sube los cambios al repositorio remoto
+git push origin master
